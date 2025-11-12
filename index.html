@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Momentum Rehab - Online Rehabilitation for Teen Athletes</title>
+    
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            DEFAULT: '#4f46e5', // Indigo 600
+                            light: '#6366f1', // Indigo 500
+                            dark: '#4338ca', // Indigo 700
+                        },
+                        secondary: {
+                            DEFAULT: '#10b981', // Emerald 500
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Basic Styles for Body -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Header / Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Brand Logo -->
+            <a href="#" class="text-2xl font-bold text-primary">
+                Momentum Rehab
+            </a>
+            
+            <!-- CTA Button -->
+            <a href="#contact" class="bg-primary text-white px-5 py-2 rounded-lg font-semibold hover:bg-primary-dark transition-colors duration-300">
+                Get Started
+            </a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Hero Section -->
+        <section class="bg-gray-50">
+            <div class="container mx-auto px-6 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
+                <!-- Hero Text Content -->
+                <div class="text-center md:text-left">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
+                        Get Back in the Game, <span class="text-primary">Faster</span>.
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-600 mb-8">
+                        Specialized online physical rehabilitation for teen athletes. Recover smart from anywhere, and return to your sport stronger than ever.
+                    </p>
+                    <a href="#contact" class="bg-primary text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-primary-dark transition-colors duration-300">
+                        Book a Free Consultation
+                    </a>
+                </div>
+                
+                <!-- Hero Image -->
+                <div>
+                    <img 
+                        src="https://placehold.co/600x400/6366F1/FFFFFF?text=Teen+Athlete+Rehab" 
+                        alt="Teen athlete performing a rehabilitation exercise" 
+                        class="rounded-lg shadow-xl w-full h-auto"
+                        onerror="this.src='https://placehold.co/600x400?text=Image+Not+Found'"
+                    >
+                    <!-- 
+                      IMAGE_NOTE: 
+                      Replace the 'src' above with your own image URL. 
+                      A great image would be an upbeat, professional photo of a teen athlete 
+                      (e.g., soccer player, runner) doing a rehab-style exercise.
+                    -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Features / How It Works Section -->
+        <section class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        A Recovery Plan Built For You
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                        We fit into your busy schedule with expert care tailored to your specific sport and injury.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                        <!-- Icon -->
+                        <div class="flex justify-center items-center mb-4">
+                            <svg class="w-12 h-12 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12.572l-4.5-4.5m0 0l-4.5 4.5m4.5-4.5v11.25" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Personalized Plans</h3>
+                        <p class="text-gray-600">
+                            Custom recovery programs designed by certified therapists who specialize in youth sports injuries.
+                        </p>
+                    </div>
+                    
+                    <!-- Feature 2 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                        <!-- Icon -->
+                        <div class="flex justify-center items-center mb-4">
+                            <svg class="w-12 h-12 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.182 14.818a4.5 4.5 0 00-6.364 0l-4.5 4.5a4.5 4.5 0 006.364 6.364l1.5-1.5m-6.364-6.364l.5-1.5m6.364 6.364l-1.5-1.5m0 0l4.5-4.5m-4.5 4.5v-6.364m0 0l4.5-4.5m-4.5 4.5L6.343 6.343m6.364 6.364l-4.5 4.5m4.5-4.5l6.364-6.364m-6.364 6.364l-1.5 1.5" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Expert Therapists</h3>
+                        <p class="text-gray-600">
+                            Connect 1-on-1 with specialists via secure video calls. Get expert guidance and feedback.
+                        </p>
+                    </div>
+                    
+                    <!-- Feature 3 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                        <!-- Icon -->
+                        <div class="flex justify-center items-center mb-4">
+                            <svg class="w-12 h-12 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Recover Anywhere</h3>
+                        <p class="text-gray-600">
+                            Access your exercises and track progress on our mobile app. Rehab that fits your schedule.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="bg-primary-light bg-opacity-10 py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
+                    Don't Just Take Our Word For It
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <p class="text-lg italic text-gray-700 mb-6">
+                            "The online sessions were so convenient. My daughter recovered from her ACL tear and felt more confident than ever returning to soccer. The therapists were amazing!"
+                        </p>
+                        <div class="flex items-center">
+                            <img src="https://placehold.co/50x50/EFEAFE/4F46E5?text=SK" alt="Parent Sarah K." class="w-12 h-12 rounded-full mr-4 border-2 border-primary">
+                            <div>
+                                <p class="font-bold text-gray-900">Sarah K.</p>
+                                <p class="text-gray-600">Parent of a Soccer Player</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <p class="text-lg italic text-gray-700 mb-6">
+                            "I was skeptical about online PT, but it was perfect for my busy schedule. My therapist understood my goals as a runner and got me back on the track safely."
+                        </p>
+                        <div class="flex items-center">
+                            <img src="https://placehold.co/50x50/EFEAFE/4F46E5?text=MT" alt="Athlete Mike T." class="w-12 h-12 rounded-full mr-4 border-2 border-primary">
+                            <div>
+                                <p class="font-bold text-gray-900">Mike T.</p>
+                                <p class="text-gray-600">High School Track Athlete</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section id="contact" class="bg-primary py-16 md:py-24">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-6">
+                    Ready to Start Your Comeback?
+                </h2>
+                <p class="text-lg md:text-xl text-primary-light text-indigo-100 mb-8 max-w-2xl mx-auto">
+                    Your first consultation is free. Let's chat about your injury and create a plan to get you back to 100%.
+                </p>
+                <a href="#" class="bg-white text-primary px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors duration-300">
+                    Book Your Free Consultation
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 Momentum Rehab. All rights reserved.</p>
+            <p class="mt-2 text-sm">
+                This is a template site. All information should be verified.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
