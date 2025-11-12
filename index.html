@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Momentum Rehab - Online Rehabilitation for Teen Athletes</title>
+    <!-- Updated Title -->
+    <title>Return to Dominance - Videos</title>
     
     <!-- Google Fonts - Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,14 +22,15 @@
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                     },
+                    // Updated Colors to Rich Poppy Red
                     colors: {
                         primary: {
-                            DEFAULT: '#4f46e5', // Indigo 600
-                            light: '#6366f1', // Indigo 500
-                            dark: '#4338ca', // Indigo 700
+                            DEFAULT: '#D90429', // Rich Poppy Red
+                            light: '#EF233C', // Lighter Red
+                            dark: '#B2001E',  // Darker Red
                         },
                         secondary: {
-                            DEFAULT: '#10b981', // Emerald 500
+                            DEFAULT: '#D90429', // Set to same red for consistency
                         }
                     }
                 }
@@ -38,9 +40,6 @@
 
     <!-- Basic Styles for Body -->
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
         body {
             font-family: 'Inter', sans-serif;
             -webkit-font-smoothing: antialiased;
@@ -53,16 +52,16 @@
     <!-- Header / Navigation -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Brand Logo -->
-            <a href="#" class="text-2xl font-bold text-primary">
-                Momentum Rehab
+            <!-- Brand Logo Updated -->
+            <a href="index.html" class="text-2xl font-bold text-primary">
+                Return to Dominance
             </a>
             
-            <!-- Navigation Links -->
+            <!-- Navigation Links Updated -->
             <div class="flex items-center space-x-4 md:space-x-6">
-                <a href="#home" class="text-gray-600 hover:text-primary transition-colors duration-300 font-medium">Home</a>
-                <a href="#mental-health" class="text-gray-600 hover:text-primary transition-colors duration-300 font-medium">Mental Health</a>
-                <a href="#videos" class="text-gray-600 hover:text-primary transition-colors duration-300 font-medium">Videos</a>
+                <a href="index.html" class="text-gray-600 hover:text-primary transition-colors duration-300 font-medium">Home</a>
+                <a href="mental-health.html" class="text-gray-600 hover:text-primary transition-colors duration-300 font-medium">Mental Health</a>
+                <a href="videos.html" class="text-primary hover:text-primary-dark transition-colors duration-300 font-medium">Videos</a>
                 <!-- CTA Button -->
                 <a href="#contact" class="bg-primary text-white px-5 py-2 rounded-lg font-semibold hover:bg-primary-dark transition-colors duration-300 hidden sm:block">
                     Get Started
@@ -73,102 +72,6 @@
 
     <!-- Main Content -->
     <main>
-
-        <!-- Hero Section -->
-        <section id="home" class="bg-gray-50">
-            <div class="container mx-auto px-6 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
-                <!-- Hero Text Content -->
-                <div class="text-center md:text-left">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
-                        Get Back in the Game, <span class="text-primary">Faster</span>.
-                    </h1>
-                    <p class="text-lg md:text-xl text-gray-600 mb-8">
-                        Specialized online physical rehabilitation for teen athletes. Recover smart from anywhere, and return to your sport stronger than ever.
-                    </p>
-                    <a href="#contact" class="bg-primary text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-primary-dark transition-colors duration-300">
-                        Book a Free Consultation
-                    </a>
-                </div>
-                
-                <!-- Hero Image -->
-                <div>
-                    <img 
-                        src="https://placehold.co/600x400/6366F1/FFFFFF?text=Teen+Athlete+Rehab" 
-                        alt="Teen athlete performing a rehabilitation exercise" 
-                        class="rounded-lg shadow-xl w-full h-auto"
-                        onerror="this.src='https://placehold.co/600x400?text=Image+Not+Found'"
-                    >
-                    <!-- 
-                      IMAGE_NOTE: 
-                      Replace the 'src' above with your own image URL. 
-                      A great image would be an upbeat, professional photo of a teen athlete 
-                      (e.g., soccer player, runner) doing a rehab-style exercise.
-                    -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Mental Health Section -->
-        <section id="mental-health" class="py-16 md:py-24">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                        Your Mental Game Matters, Too
-                    </h2>
-                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                        Recovery isn't just physical. We provide resources to help you stay strong mentally and emotionally.
-                    </p>
-                </div>
-                
-                <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Mental Health Card 1 -->
-                    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                        <!-- Icon -->
-                        <div class="flex justify-center items-center mb-4">
-                            <svg class="w-12 h-12 text-secondary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m0 0l6.75-6.75M12 19.5l-6.75-6.75" />
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 000-12 .5.5 0 01.011.011M12 6.75a6 6 0 000 12 .5.5 0 00.011-.011" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Building Resilience</h3>
-                        <p class="text-gray-600">
-                            Learn techniques to bounce back from setbacks and stay positive during your recovery journey.
-                        </p>
-                    </div>
-                    
-                    <!-- Mental Health Card 2 -->
-                    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                        <!-- Icon -->
-                        <div class="flex justify-center items-center mb-4">
-                            <svg class="w-12 h-12 text-secondary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 00-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Managing Frustration</h3>
-                        <p class="text-gray-600">
-                            It's normal to feel frustrated. Find healthy coping strategies to deal with the stress of being injured.
-                        </p>
-                    </div>
-                    
-                    <!-- Mental Health Card 3 -->
-                    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                        <!-- Icon -->
-                        <div class="flex justify-center items-center mb-4">
-                            <svg class="w-12 h-12 text-secondary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639l4.33-7.528A1.012 1.012 0 017.5 4.002h9a1.012 1.012 0 01.634.256l4.33 7.528a1.012 1.012 0 010 .638l-4.33 7.528A1.012 1.012 0 0116.5 20.002h-9a1.012 1.012 0 01-.634-.256l-4.33-7.528z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9.75v6.75" />
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5a.75.75 0 01.75.75v.01a.75.75 0 01-1.5 0v-.01a.75.75 0 01.75-.75z" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Visualization</h3>
-                        <p class="text-gray-600">
-                            Use proven mental visualization techniques to keep your skills sharp and prepare for your return to play.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Videos Section -->
         <section id="videos" class="bg-gray-50 py-16 md:py-24">
@@ -187,7 +90,8 @@
                     <!-- Video 1 -->
                     <div class="bg-white rounded-lg shadow-lg overflow-hidden">
                         <div class="relative">
-                            <img src="https://placehold.co/600x400/10B981/FFFFFF?text=Video+Thumbnail" alt="Video thumbnail" class="w-full h-auto">
+                            <!-- Updated placeholder color -->
+                            <img src="https://placehold.co/600x400/D90429/FFFFFF?text=Video+Thumbnail" alt="Video thumbnail" class="w-full h-auto">
                             <div class="absolute inset-0 flex justify-center items-center bg-black bg-opacity-40">
                                 <svg class="w-16 h-16 text-white" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M8 5v14l11-7z"/>
@@ -203,7 +107,8 @@
                     <!-- Video 2 -->
                     <div class="bg-white rounded-lg shadow-lg overflow-hidden">
                         <div class="relative">
-                            <img src="https://placehold.co/600x400/10B981/FFFFFF?text=Video+Thumbnail" alt="Video thumbnail" class="w-full h-auto">
+                            <!-- Updated placeholder color -->
+                            <img src="https://placehold.co/600x400/D90429/FFFFFF?text=Video+Thumbnail" alt="Video thumbnail" class="w-full h-auto">
                             <div class="absolute inset-0 flex justify-center items-center bg-black bg-opacity-40">
                                 <svg class="w-16 h-16 text-white" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M8 5v14l11-7z"/>
@@ -219,7 +124,8 @@
                     <!-- Video 3 -->
                     <div class="bg-white rounded-lg shadow-lg overflow-hidden">
                         <div class="relative">
-                            <img src="https://placehold.co/600x400/10B981/FFFFFF?text=Video+Thumbnail" alt="Video thumbnail" class="w-full h-auto">
+                            <!-- Updated placeholder color -->
+                            <img src="https://placehold.co/600x400/D90429/FFFFFF?text=Video+Thumbnail" alt="Video thumbnail" class="w-full h-auto">
                             <div class="absolute inset-0 flex justify-center items-center bg-black bg-opacity-40">
                                 <svg class="w-16 h-16 text-white" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M8 5v14l11-7z"/>
@@ -242,7 +148,7 @@
                 <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-6">
                     Ready to Start Your Comeback?
                 </h2>
-                <p class="text-lg md:text-xl text-primary-light text-indigo-100 mb-8 max-w-2xl mx-auto">
+                <p class="text-lg md:text-xl text-red-100 mb-8 max-w-2xl mx-auto">
                     Your first consultation is free. Let's chat about your injury and create a plan to get you back to 100%.
                 </p>
                 <a href="#" class="bg-white text-primary px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors duration-300">
@@ -256,7 +162,8 @@
     <!-- Footer -->
     <footer class="bg-gray-900 text-gray-400 py-12">
         <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2025 Momentum Rehab. All rights reserved.</p>
+            <!-- Updated Company Name in Footer -->
+            <p>&copy; 2025 Return to Dominance. All rights reserved.</p>
             <p class="mt-2 text-sm">
                 This is a template site. All information should be verified.
             </p>
