@@ -3,18 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Updated Title -->
-    <title>Return to Dominance - Videos</title>
+    <title>Return to Dominance - Online Rehabilitation for Teen Athletes</title>
     
-    <!-- Google Fonts - Inter -->
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts (Inter) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Custom Tailwind Configuration -->
+    
+    <!-- Custom Styles -->
+    <style>
+        /* Apply the Inter font family */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+    
+    <!-- Tailwind Configuration (UPDATED TO RED THEME) -->
     <script>
         tailwind.config = {
             theme: {
@@ -22,153 +34,303 @@
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                     },
-                    // Updated Colors to Rich Poppy Red
                     colors: {
                         primary: {
-                            DEFAULT: '#D90429', // Rich Poppy Red
-                            light: '#EF233C', // Lighter Red
-                            dark: '#B2001E',  // Darker Red
+                            light: '#f87171', // red-400 (Poppy Light)
+                            DEFAULT: '#ef4444', // red-500 (Poppy Red)
+                            dark: '#dc2626', // red-600 (Poppy Dark)
                         },
                         secondary: {
-                            DEFAULT: '#D90429', // Set to same red for consistency
+                            light: '#f3f4f6', // gray-100
+                            DEFAULT: '#e5e7eb', // gray-200
                         }
                     }
                 }
             }
         }
     </script>
-
-    <!-- Basic Styles for Body -->
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-    </style>
 </head>
 <body class="bg-white text-gray-800">
 
-    <!-- Header / Navigation -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Brand Logo Updated -->
-            <a href="index.html" class="text-2xl font-bold text-primary">
-                Return to Dominance
-            </a>
+    <!-- Header & Navigation -->
+    <nav class="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="#" class="text-2xl font-bold text-primary-dark">
+                        Return to Dominance
+                </a>
+                
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a href="#" class="text-primary font-semibold transition duration-200">Home</a>
+                    <a href="./mood-tracker.html" class="text-gray-600 hover:text-primary transition duration-200">Mental Health</a>
+                    <a href="#" class="text-gray-600 hover:text-primary transition duration-200">Videos</a>
+                    <a href="#cta" class="bg-primary hover:bg-primary-dark text-white font-semibold px-5 py-2 rounded-lg transition duration-200 shadow-sm">
+                        Get Started
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-gray-700 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
             
-            <!-- Navigation Links Updated -->
-            <div class="flex items-center space-x-4 md:space-x-6">
-                <a href="index.html" class="text-gray-600 hover:text-primary transition-colors duration-300 font-medium">Home</a>
-                <a href="mental-health.html" class="text-gray-600 hover:text-primary transition-colors duration-300 font-medium">Mental Health</a>
-                <a href="videos.html" class="text-primary hover:text-primary-dark transition-colors duration-300 font-medium">Videos</a>
-                <!-- CTA Button -->
-                <a href="#contact" class="bg-primary text-white px-5 py-2 rounded-lg font-semibold hover:bg-primary-dark transition-colors duration-300 hidden sm:block">
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                <!-- Updated background to red-50 -->
+                <a href="#" class="block px-4 py-2 text-primary bg-red-50 rounded-lg">Home</a>
+                <a href="./mood-tracker.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">Mental Health</a>
+                <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">Videos</a>
+                <a href="#cta" class="block px-4 py-2 bg-primary text-white font-semibold rounded-lg text-center">
                     Get Started
                 </a>
             </div>
-        </nav>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-secondary-light pt-32 pb-24 md:pt-40 md:pb-32">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight">
+                Get Back in the Game. <span class="text-primary-dark">Stronger.</span>
+            </h1>
+            <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                Specialized online physical rehabilitation for teen athletes. Recover from injury, rebuild strength, and return to your sport with confidence—all from home.
+            </p>
+            <a href="#cta" class="mt-10 inline-block bg-primary hover:bg-primary-dark text-white font-bold text-lg px-8 py-4 rounded-lg shadow-lg transition duration-200 transform hover:scale-105">
+                Book a Free Consultation
+            </a>
+            <div class="mt-16">
+                <!-- Updated placeholder color to Red (EF4444) -->
+                <img src="https://placehold.co/800x450/EF4444/FFFFFF?text=Teen+Athlete+in+Virtual+Rehab+Session" 
+                     alt="Teen athlete doing a virtual rehab session on a laptop" 
+                     class="mx-auto rounded-lg shadow-2xl w-full max-w-4xl"
+                     onerror="this.src='https://placehold.co/800x450/EF4444/FFFFFF?text=Online+Rehabilitation+Concept'">
+            </div>
+        </div>
     </header>
 
-    <!-- Main Content -->
-    <main>
-
-        <!-- Videos Section -->
-        <section id="videos" class="bg-gray-50 py-16 md:py-24">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                        Effective Stretches & Exercises
-                    </h2>
-                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                        Follow along with our therapists in these guided videos for warm-ups, cool-downs, and rehab exercises.
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Your Path to Recovery</h2>
+                <p class="mt-4 text-lg text-gray-600">
+                    A simple, 3-step process to get you back to peak performance.
+                </p>
+            </div>
+            
+            <div class="mt-16 grid md:grid-cols-3 gap-10">
+                <!-- Step 1 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-100 text-center">
+                    <div class="flex-shrink-0">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-primary-light text-white mx-auto">
+                            <!-- Icon: Video Camera -->
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M4 8h11a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1V9a1 1 0 011-1z"></path></svg>
+                        </div>
+                    </div>
+                    <h3 class="mt-6 text-2xl font-semibold text-gray-900">1. Virtual Assessment</h3>
+                    <p class="mt-3 text-gray-600">
+                        Meet 1-on-1 with a certified specialist for a comprehensive online evaluation of your injury.
                     </p>
                 </div>
                 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    
-                    <!-- Video 1 -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                        <div class="relative">
-                            <!-- Updated placeholder color -->
-                            <img src="https://placehold.co/600x400/D90429/FFFFFF?text=Video+Thumbnail" alt="Video thumbnail" class="w-full h-auto">
-                            <div class="absolute inset-0 flex justify-center items-center bg-black bg-opacity-40">
-                                <svg class="w-16 h-16 text-white" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M8 5v14l11-7z"/>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2">Dynamic Warm-up (5 mins)</h3>
-                            <p class="text-gray-600">Perfect for getting your body ready before any practice or game.</p>
+                <!-- Step 2 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-100 text-center">
+                    <div class="flex-shrink-0">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-primary-light text-white mx-auto">
+                            <!-- Icon: Clipboard List -->
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
                         </div>
                     </div>
-                    
-                    <!-- Video 2 -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                        <div class="relative">
-                            <!-- Updated placeholder color -->
-                            <img src="https://placehold.co/600x400/D90429/FFFFFF?text=Video+Thumbnail" alt="Video thumbnail" class="w-full h-auto">
-                            <div class="absolute inset-0 flex justify-center items-center bg-black bg-opacity-40">
-                                <svg class="w-16 h-16 text-white" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M8 5v14l11-7z"/>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2">Post-Practice Cooldown</h3>
-                            <p class="text-gray-600">Help your muscles recover and prevent soreness with these key stretches.</p>
+                    <h3 class="mt-6 text-2xl font-semibold text-gray-900">2. Personalized Plan</h3>
+                    <p class="mt-3 text-gray-600">
+                        Receive a custom recovery plan with daily exercises and goals, delivered through our easy-to-use app.
+                    </p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-100 text-center">
+                    <div class="flex-shrink-0">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-primary-light text-white mx-auto">
+                            <!-- Icon: Chart -->
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
                         </div>
                     </div>
-
-                    <!-- Video 3 -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                        <div class="relative">
-                            <!-- Updated placeholder color -->
-                            <img src="https://placehold.co/600x400/D90429/FFFFFF?text=Video+Thumbnail" alt="Video thumbnail" class="w-full h-auto">
-                            <div class="absolute inset-0 flex justify-center items-center bg-black bg-opacity-40">
-                                <svg class="w-16 h-16 text-white" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M8 5v14l11-7z"/>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2">Ankle Stability Exercises</h3>
-                            <p class="text-gray-600">Strengthen your ankles to prevent sprains and improve your balance.</p>
-                        </div>
-                    </div>
-
+                    <h3 class="mt-6 text-2xl font-semibold text-gray-900">3. Guided Progress</h3>
+                    <p class="mt-3 text-gray-600">
+                        Track your progress, get real-time feedback, and have regular check-ins with your therapist.
+                    </p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Final CTA Section -->
-        <section id="contact" class="bg-primary py-16 md:py-24">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-6">
-                    Ready to Start Your Comeback?
-                </h2>
-                <p class="text-lg md:text-xl text-red-100 mb-8 max-w-2xl mx-auto">
-                    Your first consultation is free. Let's chat about your injury and create a plan to get you back to 100%.
-                </p>
-                <a href="#" class="bg-white text-primary px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors duration-300">
-                    Book Your Free Consultation
-                </a>
+    <!-- Videos Section -->
+    <section id="benefits" class="py-24 bg-secondary-light">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+            <!-- Image Column -->
+            <div class="order-1 md:order-2">
+                <img src="https://placehold.co/600x400/E5E7EB/1F2937?text=Convenient+At-Home+Exercises" 
+                     alt="Athlete doing rehab exercises at home using a laptop for guidance" 
+                     class="rounded-lg shadow-xl"
+                     onerror="this.src='https://placehold.co/600x400/E5E7EB/1F2937?text=Rehab+from+Anywhere'">
             </div>
-        </section>
+            
+            <!-- Text Column -->
+            <div class="order-2 md:order-1">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Rehab That Fits Your Life</h2>
+                <p class="mt-4 text-lg text-gray-600">
+                    We get it. Between school, practice, and life, you're busy. Our program is built around your schedule.
+                </p>
+                <ul class="mt-8 space-y-6">
+                    <li class="flex items-start">
+                        <div class="flex-shrink-0">
+                            <!-- Icon: Check (Updated to primary color) -->
+                            <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-lg font-semibold text-gray-900">Recover from Anywhere</h4>
+                            <p class="text-gray-600">No more driving to appointments. All you need is your phone or laptop.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="flex-shrink-0">
+                            <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-lg font-semibold text-gray-900">Teen Sport Specialists</h4>
+                            <p class="text-gray-600">Our therapists specialize in youth sports injuries and understand the unique needs of growing athletes.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="flex-shrink-0">
+                            <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-lg font-semibold text-gray-900">Faster, Smarter Recovery</h4>
+                            <p class="text-gray-600">Our tech-enabled platform helps you stay consistent and motivated, leading to better results.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-    </main>
+    <!-- Mental Health Section -->
+    <section id="testimonials" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center">
+                Don't Just Take Our Word For It
+            </h2>
+            <div class="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-100">
+                    <p class="text-lg text-gray-700 italic">
+                        "Return to Dominances program was a lifesaver. After my ACL surgery, I was worried I'd miss the whole season. My therapist was amazing and the app made it easy to stick to my exercises."
+                    </p>
+                    <div class="mt-6 flex items-center">
+                        <img class="h-12 w-12 rounded-full" src="https://placehold.co/100x100/D1D5DB/1F2937?text=AJ" alt="Alex J.">
+                        <div class="ml-4">
+                            <div class="text-base font-semibold text-gray-900">Alex J.</div>
+                            <div class="text-base text-primary">High School Soccer Player</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-100">
+                    <p class="text-lg text-gray-700 italic">
+                        "I loved how I could do my rehab between classes or after practice. It was so much more convenient than driving to a clinic three times a week. I'm back on the court and feel stronger than before."
+                    </p>
+                    <div class="mt-6 flex items-center">
+                        <img class="h-12 w-12 rounded-full" src="https://placehold.co/100x100/D1D5DB/1F2937?text=MK" alt="Mia K.">
+                        <div class="ml-4">
+                            <div class="text-base font-semibold text-gray-900">Mia K.</div>
+                            <div class="text-base text-primary">Varsity Basketball Player</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-100 lg:col-span-1 md:col-span-2">
+                    <p class="text-lg text-gray-700 italic">
+                        "As a parent, I was so impressed. The communication was excellent, and I could see my son's progress. Return to Dominance gave him the tools to take ownership of his recovery."
+                    </p>
+                    <div class="mt-6 flex items-center">
+                        <img class="h-12 w-12 rounded-full" src="https://placehold.co/100x100/D1D5DB/1F2937?text=DS" alt="David S.">
+                        <div class="ml-4">
+                            <div class="text-base font-semibold text-gray-900">David S.</div>
+                            <div class="text-base text-primary">Parent of an Athlete</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section id="cta" class="py-24 bg-primary-dark">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white">
+                Ready to Start Your Comeback?
+            </h2>
+            <!-- Updated text color to red-100 -->
+            <p class="mt-4 text-lg md:text-xl text-red-100 max-w-2xl mx-auto">
+                Don't let an injury keep you on the sidelines. Schedule your free consultation today and let's build your personalized recovery plan.
+            </p>
+            <a href="#" class="mt-10 inline-block bg-white hover:bg-gray-100 text-primary-dark font-bold text-lg px-8 py-4 rounded-lg shadow-lg transition duration-200 transform hover:scale-105">
+                Book My Free Consultation
+            </a>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-12">
-        <div class="container mx-auto px-6 text-center">
-            <!-- Updated Company Name in Footer -->
-            <p>&copy; 2025 Return to Dominance. All rights reserved.</p>
-            <p class="mt-2 text-sm">
-                This is a template site. All information should be verified.
-            </p>
+    <footer class="bg-gray-900 text-gray-400 py-16">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <!-- Logo & Copyright -->
+                <div class="text-center md:text-left mb-6 md:mb-0">
+                    <a href="#" class="text-2xl font-bold text-white">
+                        Return to Dominance
+                    </a>
+                    <p class="mt-2 text-sm">
+                        &copy; 2025 Rebound Rehab Inc. All rights reserved.
+                    </p>
+                </div>
+                
+                <!-- Footer Links -->
+                <div class="flex space-x-8">
+                    <a href="index.html#how-it-works" class="hover:text-white transition duration-200">How It Works</a>
+                    <a href="index.html#benefits" class="hover:text-white transition duration-200">Benefits</a>
+                    <a href="#" class="hover:text-white transition duration-200">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition duration-200">Contact</a>
+                </div>
+            </div>
         </div>
     </footer>
 
+    <!-- JavaScript for Mobile Menu -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        // Toggle mobile menu
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
 </body>
 </html>
