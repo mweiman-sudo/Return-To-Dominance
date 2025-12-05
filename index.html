@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Return to Dominance - Online Rehabilitation for Teen Athletes</title>
+    <title>Mental Health Tracker - Return to Dominance</title>
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -11,18 +11,17 @@
     <!-- Google Fonts (Inter) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js" rel="stylesheet">
     
     <!-- Custom Styles -->
     <style>
-        /* Apply the Inter font family */
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        
-        /* Smooth scrolling for anchor links */
-        html {
-            scroll-behavior: smooth;
+        body { font-family: 'Inter', sans-serif; }
+        html { scroll-behavior: smooth; }
+        /* Style for selected emoji - UPDATED TO RED */
+        .mood-selected {
+            transform: scale(1.2);
+            box-shadow: 0 0 15px rgba(239, 68, 68, 0.5); /* red-500 shadow */
+            background: #fef2f2; /* red-50 */
         }
     </style>
     
@@ -50,23 +49,23 @@
         }
     </script>
 </head>
-<body class="bg-white text-gray-800">
+<body class="bg-secondary-light text-gray-800">
 
     <!-- Header & Navigation -->
     <nav class="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
         <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <!-- Logo -->
-                <a href="#" class="text-2xl font-bold text-primary-dark">
+                <a href="./index.html" class="text-2xl font-bold text-primary-dark">
                         Return to Dominance
                 </a>
                 
                 <!-- Desktop Nav -->
                 <div class="hidden md:flex space-x-6 items-center">
-                    <a href="#" class="text-primary font-semibold transition duration-200">Home</a>
-                    <a href="./mood-tracker.html" class="text-gray-600 hover:text-primary transition duration-200">Mental Health</a>
+                    <a href="./index.html" class="text-gray-600 hover:text-primary transition duration-200">Home</a>
+                    <a href="./mood-tracker.html" class="text-primary font-semibold transition duration-200">Mental Health</a>
                     <a href="#" class="text-gray-600 hover:text-primary transition duration-200">Videos</a>
-                    <a href="#cta" class="bg-primary hover:bg-primary-dark text-white font-semibold px-5 py-2 rounded-lg transition duration-200 shadow-sm">
+                    <a href="./index.html#cta" class="bg-primary hover:bg-primary-dark text-white font-semibold px-5 py-2 rounded-lg transition duration-200 shadow-sm">
                         Get Started
                     </a>
                 </div>
@@ -83,211 +82,105 @@
             
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                <a href="./index.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">Home</a>
                 <!-- Updated background to red-50 -->
-                <a href="#" class="block px-4 py-2 text-primary bg-red-50 rounded-lg">Home</a>
-                <a href="./mood-tracker.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">Mental Health</a>
+                <a href="./mood-tracker.html" class="block px-4 py-2 text-primary bg-red-50 rounded-lg">Mental Health</a>
                 <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">Videos</a>
-                <a href="#cta" class="block px-4 py-2 bg-primary text-white font-semibold rounded-lg text-center">
+                <a href="./index.html#cta" class="block px-4 py-2 bg-primary text-white font-semibold rounded-lg text-center">
                     Get Started
                 </a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="bg-secondary-light pt-32 pb-24 md:pt-40 md:pb-32">
-        <div class="container mx-auto px-6 text-center">
-            <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight">
-                Get Back in the Game. <span class="text-primary-dark">Stronger.</span>
-            </h1>
-            <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-                Specialized online physical rehabilitation for teen athletes. Recover from injury, rebuild strength, and return to your sport with confidence—all from home.
-            </p>
-            <a href="#cta" class="mt-10 inline-block bg-primary hover:bg-primary-dark text-white font-bold text-lg px-8 py-4 rounded-lg shadow-lg transition duration-200 transform hover:scale-105">
-                Book a Free Consultation
-            </a>
-            <div class="mt-16">
-                <!-- Updated placeholder color to Red (EF4444) -->
-                <img src="https://placehold.co/800x450/EF4444/FFFFFF?text=Teen+Athlete+in+Virtual+Rehab+Session" 
-                     alt="Teen athlete doing a virtual rehab session on a laptop" 
-                     class="mx-auto rounded-lg shadow-2xl w-full max-w-4xl"
-                     onerror="this.src='https://placehold.co/800x450/EF4444/FFFFFF?text=Online+Rehabilitation+Concept'">
-            </div>
-        </div>
-    </header>
-
-    <!-- How It Works Section -->
-    <section id="how-it-works" class="py-24 bg-white">
+    <!-- Main Content -->
+    <main class="pt-32 pb-24 min-h-screen">
         <div class="container mx-auto px-6">
+            
+            <!-- Header -->
             <div class="text-center max-w-2xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Your Path to Recovery</h2>
+                <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900">Mental Health Check-in</h1>
                 <p class="mt-4 text-lg text-gray-600">
-                    A simple, 3-step process to get you back to peak performance.
+                    Recovery isn't just physical. Taking a moment to check in with your feelings is a key part of getting back to 100%.
                 </p>
+                <!-- User ID will be shown here -->
+                <p id="auth-status" class="mt-4 text-sm text-gray-500">Connecting to secure log...</p>
             </div>
             
-            <div class="mt-16 grid md:grid-cols-3 gap-10">
-                <!-- Step 1 -->
-                <div class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-100 text-center">
-                    <div class="flex-shrink-0">
-                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-primary-light text-white mx-auto">
-                            <!-- Icon: Video Camera -->
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M4 8h11a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1V9a1 1 0 011-1z"></path></svg>
-                        </div>
+            <!-- Mood Logger -->
+            <div class="mt-16 max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-semibold text-gray-900 text-center">How are you feeling today?</h2>
+                <p class="text-center text-gray-500 text-sm" id="today-date">Loading...</p>
+                
+                <!-- Mood Emojis -->
+                <div class="mt-8 flex justify-around items-center">
+                    <div class="mood-option p-3 rounded-full cursor-pointer transition-all duration-200" data-mood="terrible" aria-label="Terrible">
+                        <span class="text-5xl md:text-6xl">😞</span>
                     </div>
-                    <h3 class="mt-6 text-2xl font-semibold text-gray-900">1. Virtual Assessment</h3>
-                    <p class="mt-3 text-gray-600">
-                        Meet 1-on-1 with a certified specialist for a comprehensive online evaluation of your injury.
-                    </p>
+                    <div class="mood-option p-3 rounded-full cursor-pointer transition-all duration-200" data-mood="bad" aria-label="Bad">
+                        <span class="text-5xl md:text-6xl">😟</span>
+                    </div>
+                    <div class="mood-option p-3 rounded-full cursor-pointer transition-all duration-200" data-mood="ok" aria-label="OK">
+                        <span class="text-5xl md:text-6xl">😐</span>
+                    </div>
+                    <div class="mood-option p-3 rounded-full cursor-pointer transition-all duration-200" data-mood="good" aria-label="Good">
+                        <span class="text-5xl md:text-6xl">🙂</span>
+                    </div>
+                    <div class="mood-option p-3 rounded-full cursor-pointer transition-all duration-200" data-mood="great" aria-label="Great">
+                        <span class="text-5xl md:text-6xl">😄</span>
+                    </div>
                 </div>
                 
-                <!-- Step 2 -->
-                <div class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-100 text-center">
-                    <div class="flex-shrink-0">
-                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-primary-light text-white mx-auto">
-                            <!-- Icon: Clipboard List -->
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
-                        </div>
-                    </div>
-                    <h3 class="mt-6 text-2xl font-semibold text-gray-900">2. Personalized Plan</h3>
-                    <p class="mt-3 text-gray-600">
-                        Receive a custom recovery plan with daily exercises and goals, delivered through our easy-to-use app.
-                    </p>
-                </div>
+                <button id="save-mood-btn" class="mt-8 w-full bg-primary text-white font-semibold py-3 rounded-lg shadow-md transition duration-200 hover:bg-primary-dark disabled:bg-gray-300 disabled:cursor-not-allowed" disabled>
+                    Save Today's Mood
+                </button>
+                <p id="save-status" class="text-center text-green-600 mt-2 h-4"></p>
                 
-                <!-- Step 3 -->
-                <div class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-100 text-center">
-                    <div class="flex-shrink-0">
-                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-primary-light text-white mx-auto">
-                            <!-- Icon: Chart -->
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                        </div>
-                    </div>
-                    <h3 class="mt-6 text-2xl font-semibold text-gray-900">3. Guided Progress</h3>
-                    <p class="mt-3 text-gray-600">
-                        Track your progress, get real-time feedback, and have regular check-ins with your therapist.
-                    </p>
+                <!-- NEW SUGGESTION BOX (starts hidden) - Updated background to red-50 -->
+                <div id="suggestion-box" class="hidden mt-6 p-4 bg-red-50 border border-primary-light rounded-lg">
+                    <h3 class="font-semibold text-lg text-primary-dark">A Quick Thought...</h3>
+                    <p id="suggestion-text" class="text-gray-700 mt-2">Here is a helpful suggestion.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Videos Section -->
-    <section id="benefits" class="py-24 bg-secondary-light">
-        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-            <!-- Image Column -->
-            <div class="order-1 md:order-2">
-                <img src="https://placehold.co/600x400/E5E7EB/1F2937?text=Convenient+At-Home+Exercises" 
-                     alt="Athlete doing rehab exercises at home using a laptop for guidance" 
-                     class="rounded-lg shadow-xl"
-                     onerror="this.src='https://placehold.co/600x400/E5E7EB/1F2937?text=Rehab+from+Anywhere'">
             </div>
             
-            <!-- Text Column -->
-            <div class="order-2 md:order-1">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Rehab That Fits Your Life</h2>
-                <p class="mt-4 text-lg text-gray-600">
-                    We get it. Between school, practice, and life, you're busy. Our program is built around your schedule.
-                </p>
-                <ul class="mt-8 space-y-6">
-                    <li class="flex items-start">
-                        <div class="flex-shrink-0">
-                            <!-- Icon: Check (Updated to primary color) -->
-                            <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                        </div>
-                        <div class="ml-4">
-                            <h4 class="text-lg font-semibold text-gray-900">Recover from Anywhere</h4>
-                            <p class="text-gray-600">No more driving to appointments. All you need is your phone or laptop.</p>
-                        </div>
-                    </li>
-                    <li class="flex items-start">
-                        <div class="flex-shrink-0">
-                            <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                        </div>
-                        <div class="ml-4">
-                            <h4 class="text-lg font-semibold text-gray-900">Teen Sport Specialists</h4>
-                            <p class="text-gray-600">Our therapists specialize in youth sports injuries and understand the unique needs of growing athletes.</p>
-                        </div>
-                    </li>
-                    <li class="flex items-start">
-                        <div class="flex-shrink-0">
-                            <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                        </div>
-                        <div class="ml-4">
-                            <h4 class="text-lg font-semibold text-gray-900">Faster, Smarter Recovery</h4>
-                            <p class="text-gray-600">Our tech-enabled platform helps you stay consistent and motivated, leading to better results.</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Mental Health Section -->
-    <section id="testimonials" class="py-24 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center">
-                Don't Just Take Our Word For It
-            </h2>
-            <div class="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-100">
-                    <p class="text-lg text-gray-700 italic">
-                        "Return to Dominances program was a lifesaver. After my ACL surgery, I was worried I'd miss the whole season. My therapist was amazing and the app made it easy to stick to my exercises."
-                    </p>
-                    <div class="mt-6 flex items-center">
-                        <img class="h-12 w-12 rounded-full" src="https://placehold.co/100x100/D1D5DB/1F2937?text=AJ" alt="Alex J.">
-                        <div class="ml-4">
-                            <div class="text-base font-semibold text-gray-900">Alex J.</div>
-                            <div class="text-base text-primary">High School Soccer Player</div>
-                        </div>
+            <!-- This Week's Log -->
+            <div class="mt-16 max-w-4xl mx-auto">
+                <h2 class="text-2xl font-semibold text-gray-900 text-center mb-8">This Week's Log</h2>
+                <div class="grid grid-cols-3 sm:grid-cols-7 gap-4 text-center">
+                    <!-- Day boxes will be populated by JavaScript -->
+                    <div id="day-0" class="bg-white p-4 rounded-lg shadow aspect-square flex flex-col justify-center items-center">
+                        <span class="font-bold text-gray-800 text-sm md:text-base">Mon</span>
+                        <span class="text-4xl mt-2">...</span>
                     </div>
-                </div>
-                <!-- Testimonial 2 -->
-                <div class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-100">
-                    <p class="text-lg text-gray-700 italic">
-                        "I loved how I could do my rehab between classes or after practice. It was so much more convenient than driving to a clinic three times a week. I'm back on the court and feel stronger than before."
-                    </p>
-                    <div class="mt-6 flex items-center">
-                        <img class="h-12 w-12 rounded-full" src="https://placehold.co/100x100/D1D5DB/1F2937?text=MK" alt="Mia K.">
-                        <div class="ml-4">
-                            <div class="text-base font-semibold text-gray-900">Mia K.</div>
-                            <div class="text-base text-primary">Varsity Basketball Player</div>
-                        </div>
+                    <div id="day-1" class="bg-white p-4 rounded-lg shadow aspect-square flex flex-col justify-center items-center">
+                        <span class="font-bold text-gray-800 text-sm md:text-base">Tue</span>
+                        <span class="text-4xl mt-2">...</span>
                     </div>
-                </div>
-                <!-- Testimonial 3 -->
-                <div class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-100 lg:col-span-1 md:col-span-2">
-                    <p class="text-lg text-gray-700 italic">
-                        "As a parent, I was so impressed. The communication was excellent, and I could see my son's progress. Return to Dominance gave him the tools to take ownership of his recovery."
-                    </p>
-                    <div class="mt-6 flex items-center">
-                        <img class="h-12 w-12 rounded-full" src="https://placehold.co/100x100/D1D5DB/1F2937?text=DS" alt="David S.">
-                        <div class="ml-4">
-                            <div class="text-base font-semibold text-gray-900">David S.</div>
-                            <div class="text-base text-primary">Parent of an Athlete</div>
-                        </div>
+                    <div id="day-2" class="bg-white p-4 rounded-lg shadow aspect-square flex flex-col justify-center items-center">
+                        <span class="font-bold text-gray-800 text-sm md:text-base">Wed</span>
+                        <span class="text-4xl mt-2">...</span>
+                    </div>
+                    <div id="day-3" class="bg-white p-4 rounded-lg shadow aspect-square flex flex-col justify-center items-center">
+                        <span class="font-bold text-gray-800 text-sm md:text-base">Thu</span>
+                        <span class="text-4xl mt-2">...</span>
+                    </div>
+                    <div id="day-4" class="bg-white p-4 rounded-lg shadow aspect-square flex flex-col justify-center items-center">
+                        <span class="font-bold text-gray-800 text-sm md:text-base">Fri</span>
+                        <span class="text-4xl mt-2">...</span>
+                    </div>
+                    <div id="day-5" class="bg-white p-4 rounded-lg shadow aspect-square flex flex-col justify-center items-center">
+                        <span class="font-bold text-gray-800 text-sm md:text-base">Sat</span>
+                        <span class="text-4xl mt-2">...</span>
+                    </div>
+                    <div id="day-6" class="bg-white p-4 rounded-lg shadow aspect-square flex flex-col justify-center items-center">
+                        <span class="font-bold text-gray-800 text-sm md:text-base">Sun</span>
+                        <span class="text-4xl mt-2">...</span>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Final CTA Section -->
-    <section id="cta" class="py-24 bg-primary-dark">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-white">
-                Ready to Start Your Comeback?
-            </h2>
-            <!-- Updated text color to red-100 -->
-            <p class="mt-4 text-lg md:text-xl text-red-100 max-w-2xl mx-auto">
-                Don't let an injury keep you on the sidelines. Schedule your free consultation today and let's build your personalized recovery plan.
-            </p>
-            <a href="#" class="mt-10 inline-block bg-white hover:bg-gray-100 text-primary-dark font-bold text-lg px-8 py-4 rounded-lg shadow-lg transition duration-200 transform hover:scale-105">
-                Book My Free Consultation
-            </a>
         </div>
-    </section>
+    </main>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-gray-400 py-16">
@@ -295,7 +188,7 @@
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <!-- Logo & Copyright -->
                 <div class="text-center md:text-left mb-6 md:mb-0">
-                    <a href="#" class="text-2xl font-bold text-white">
+                    <a href="./index.html" class="text-2xl font-bold text-white">
                         Return to Dominance
                     </a>
                     <p class="mt-2 text-sm">
@@ -305,8 +198,8 @@
                 
                 <!-- Footer Links -->
                 <div class="flex space-x-8">
-                    <a href="index.html#how-it-works" class="hover:text-white transition duration-200">How It Works</a>
-                    <a href="index.html#benefits" class="hover:text-white transition duration-200">Benefits</a>
+                    <a href="./index.html#how-it-works" class="hover:text-white transition duration-200">How It Works</a>
+                    <a href="./index.html#benefits" class="hover:text-white transition duration-200">Benefits</a>
                     <a href="#" class="hover:text-white transition duration-200">Privacy Policy</a>
                     <a href="#" class="hover:text-white transition duration-200">Contact</a>
                 </div>
@@ -314,23 +207,319 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Mobile Menu -->
-    <script>
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Import Firebase modules
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, onSnapshot, collection, query, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // --- GLOBAL VARIABLES ---
+        let db, auth;
+        let userId;
+        let selectedMood = null;
+        const moodEmojis = {
+            'terrible': '😞',
+            'bad': '😟',
+            'ok': '😐',
+            'good': '🙂',
+            'great': '😄',
+            'default': '...'
+        };
+
+        // NEW: Mood Suggestions
+        const moodSuggestions = {
+            'terrible': [
+                "It's completely okay to have tough days. Be kind to yourself. Maybe just focus on one small thing, like drinking a glass of water or stretching for 5 minutes.",
+                "Feeling this way is hard, but it's temporary. If you feel comfortable, try talking to a friend, family member, or a trusted adult about what's on your mind.",
+                "Your feelings are valid. Sometimes a change of scenery helps, even just stepping outside for 60 seconds of fresh air."
+            ],
+            'bad': [
+                "Sorry to hear you're having a bad day. Could you write down one thing you're grateful for, no matter how small? It can sometimes help shift your perspective.",
+                "It's tough when you're in a funk. Maybe listen to a favorite song or podcast to give your mind a break.",
+                "Remember that your worth isn't defined by one day. Try to do a simple, kind act for yourself, like tidying up one small spot."
+            ],
+            'ok': [
+                "'OK' is a perfectly fine place to be. It's a good time to check in: Are you hydrated? Have you eaten? A small snack or some water can make a big difference.",
+                "Feeling 'ok'? This is a great time to just pause. Take 10 deep breaths, in and out. Notice the quiet.",
+                "A neutral day is a good foundation. What's one small thing you could do right now that your 'future self' would thank you for?"
+            ],
+            'good': [
+                "That's great! Try to pause and notice *why* you're feeling good. What's going right? Savor this moment.",
+                "Awesome! Good feelings can build on themselves. Maybe share that positivity—send a nice text to a friend or family member.",
+                "Glad to hear you're feeling good! This is a great time to tackle a small task you've been putting off. Use that positive energy!"
+            ],
+            'great': [
+                "Amazing! Ride that wave of positive energy. It's a great time to be active or creative. Enjoy it!",
+                "Fantastic! Remember this feeling. What contributed to it? See if you can plan to do more of that this week.",
+                "Keep that great energy going! Maybe do something kind for someone else to spread the good vibes."
+            ]
+        };
+
+        // --- DOM Elements ---
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
+        const authStatusEl = document.getElementById('auth-status');
+        const todayDateEl = document.getElementById('today-date');
+        const moodOptions = document.querySelectorAll('.mood-option');
+        const saveMoodBtn = document.getElementById('save-mood-btn');
+        const saveStatusEl = document.getElementById('save-status');
         
-        // Toggle mobile menu
+        // NEW: Suggestion Box Elements
+        const suggestionBoxEl = document.getElementById('suggestion-box');
+        const suggestionTextEl = document.getElementById('suggestion-text');
+
+        const dayElements = [
+            document.getElementById('day-0'),
+            document.getElementById('day-1'),
+            document.getElementById('day-2'),
+            document.getElementById('day-3'),
+            document.getElementById('day-4'),
+            document.getElementById('day-5'),
+            document.getElementById('day-6')
+        ];
+
+        // --- DATE HELPERS ---
+        // Get YYYY-MM-DD string for a date
+        function getYYYYMMDD(date) {
+            return date.toISOString().split('T')[0];
+        }
+
+        // Get the start of the current week (Monday)
+        function getStartOfWeek(date) {
+            const d = new Date(date);
+            const day = d.getDay();
+            const diff = d.getDate() - day + (day === 0 ? -6 : 1); // Adjust for Sunday (0)
+            return new Date(d.setDate(diff));
+        }
+
+        // --- UI FUNCTIONS ---
+        
+        // Mobile Menu Toggle
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
+        
+        // Set today's date
+        const today = new Date();
+        todayDateEl.textContent = today.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
-        // Close mobile menu when a link is clicked
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
+        // Mood selection
+        moodOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                // Remove previous selection
+                moodOptions.forEach(opt => opt.classList.remove('mood-selected'));
+                
+                // Add new selection
+                option.classList.add('mood-selected');
+                selectedMood = option.dataset.mood;
+                
+                // Enable button
+                saveMoodBtn.disabled = false;
+                saveStatusEl.textContent = '';
+                
+                // NEW: Hide suggestion box on new selection
+                suggestionBoxEl.classList.add('hidden');
             });
         });
+
+        // Update the weekly display
+        function updateWeekDisplay(moods) {
+            const startOfWeek = getStartOfWeek(new Date());
+            const dayNames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+            
+            for (let i = 7; i < 7; i++) { // Corrected from i=7 to i=0 in logic below
+                const day = new Date(startOfWeek);
+                day.setDate(startOfWeek.getDate() + i);
+                const dateString = getYYYYMMDD(day);
+                
+                const dayBox = dayElements[i];
+                const dayNameEl = dayBox.querySelector('span:first-child');
+                const emojiEl = dayBox.querySelector('span:last-child');
+                
+                dayNameEl.textContent = dayNames[i];
+                
+                // Find mood for this day
+                const moodData = moods.find(m => m.date === dateString);
+                emojiEl.textContent = moodData ? moodEmojis[moodData.mood] : moodEmojis['default'];
+                
+                // Highlight today
+                if (dateString === getYYYYMMDD(new Date())) {
+                    dayNameEl.classList.add('text-primary-dark', 'font-bold');
+                    dayBox.classList.add('border-2', 'border-primary');
+                } else {
+                    dayNameEl.classList.remove('text-primary-dark', 'font-bold');
+                    dayBox.classList.remove('border-2', 'border-primary');
+                }
+            }
+            // Correct Loop:
+            for (let i = 0; i < 7; i++) {
+                const day = new Date(startOfWeek);
+                day.setDate(startOfWeek.getDate() + i);
+                const dateString = getYYYYMMDD(day);
+                
+                const dayBox = dayElements[i];
+                const dayNameEl = dayBox.querySelector('span:first-child');
+                const emojiEl = dayBox.querySelector('span:last-child');
+                
+                dayNameEl.textContent = dayNames[i];
+                
+                // Find mood for this day
+                const moodData = moods.find(m => m.date === dateString);
+                emojiEl.textContent = moodData ? moodEmojis[moodData.mood] : moodEmojis['default'];
+                
+                // Highlight today
+                if (dateString === getYYYYMMDD(new Date())) {
+                    dayNameEl.classList.add('text-primary-dark', 'font-bold');
+                    dayBox.classList.add('border-2', 'border-primary');
+                } else {
+                    dayNameEl.classList.remove('text-primary-dark', 'font-bold');
+                    dayBox.classList.remove('border-2', 'border-primary');
+                }
+            }
+        }
+
+        // NEW: Show Suggestion Function
+        function showSuggestion(mood) {
+            if (moodSuggestions[mood]) {
+                const suggestions = moodSuggestions[mood];
+                // Pick a random suggestion from the list
+                const randomSuggestion = suggestions[Math.floor(Math.random() * suggestions.length)];
+                
+                suggestionTextEl.textContent = randomSuggestion;
+                suggestionBoxEl.classList.remove('hidden');
+            } else {
+                suggestionBoxEl.classList.add('hidden'); // Hide if no mood
+            }
+        }
+
+        // --- FIREBASE FUNCTIONS ---
+
+        // 1. Initialize Firebase and Auth
+        async function initFirebase() {
+            try {
+                // Get config and app ID from (hidden) global vars
+                const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+                const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+
+                if (!firebaseConfig.apiKey) {
+                    authStatusEl.textContent = "Error: Firebase config missing.";
+                    console.error("Firebase config is missing.");
+                    return;
+                }
+
+                const app = initializeApp(firebaseConfig);
+                db = getFirestore(app);
+                auth = getAuth(app);
+
+                // Set log level for debugging
+                // setLogLevel('debug');
+
+                // 2. Sign In
+                onAuthStateChanged(auth, (user) => {
+                    if (user) {
+                        // User is signed in
+                        userId = user.uid;
+                        authStatusEl.textContent = `Your private log ID: ${userId}`;
+                        console.log("User signed in with UID:", userId);
+                        
+                        // 3. Start listening for mood data
+                        listenForMoods(appId, userId);
+                    } else {
+                        // User is signed out
+                        authStatusEl.textContent = "Not signed in.";
+                        console.log("User is not signed in.");
+                    }
+                });
+
+                // Try signing in with token, fall back to anonymous
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+
+            } catch (error) {
+                console.error("Firebase Init Error:", error);
+                authStatusEl.textContent = "Error connecting to log.";
+            }
+        }
+
+        // 3. Listen for mood data
+        function listenForMoods(appId, uid) {
+            const colPath = `/artifacts/${appId}/users/${uid}/moods`;
+            const q = query(collection(db, colPath));
+
+            onSnapshot(q, (snapshot) => {
+                const moods = [];
+                snapshot.forEach((doc) => {
+                    moods.push({ id: doc.id, ...doc.data() });
+                });
+                
+                // Sort moods by date (descending) in JS
+                moods.sort((a, b) => new Date(b.date) - new Date(a.date));
+                
+                console.log("Loaded moods:", moods);
+                updateWeekDisplay(moods);
+
+            }, (error) => {
+                console.error("Error listening to moods:", error);
+                saveStatusEl.textContent = "Error loading moods.";
+            });
+        }
+
+        // 4. Save mood data
+        async function saveMood() {
+            if (!selectedMood || !userId) {
+                saveStatusEl.textContent = "Please select a mood first.";
+                return;
+            }
+
+            saveMoodBtn.disabled = true;
+            saveStatusEl.textContent = "Saving...";
+
+            try {
+                const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+                const todayString = getYYYYMMDD(new Date());
+                
+                // Use YYYY-MM-DD as the document ID to easily overwrite/update today's mood
+                const docRef = doc(db, `/artifacts/${appId}/users/${userId}/moods`, todayString);
+                
+                const moodData = {
+                    date: todayString,
+                    mood: selectedMood,
+                    timestamp: serverTimestamp()
+                };
+
+                // setDoc will create or overwrite the doc for today
+                await setDoc(docRef, moodData);
+
+                saveStatusEl.textContent = "Saved!";
+                
+                // NEW: Show suggestion
+                showSuggestion(selectedMood);
+
+                setTimeout(() => {
+                    saveStatusEl.textContent = "";
+                    saveMoodBtn.disabled = false;
+                    // Deselect mood
+                    moodOptions.forEach(opt => opt.classList.remove('mood-selected'));
+                    selectedMood = null;
+                }, 2000);
+
+            } catch (error) {
+                console.error("Error saving mood:", error);
+                saveStatusEl.textContent = "Error saving. Try again.";
+                saveMoodBtn.disabled = false;
+            }
+        }
+        
+        // --- EVENT LISTENERS ---
+        saveMoodBtn.addEventListener('click', saveMood);
+        
+        // --- START APP ---
+        initFirebase();
+
     </script>
 </body>
 </html>
